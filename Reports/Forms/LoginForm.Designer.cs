@@ -33,6 +33,8 @@
             label1 = new Label();
             Passbox = new TextBox();
             Login_Button = new Button();
+            BacktoRegister = new Button();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             SuspendLayout();
             // 
             // Username
@@ -83,17 +85,34 @@
             Login_Button.UseVisualStyleBackColor = true;
             Login_Button.Click += Login_Button_Click;
             // 
+            // BacktoRegister
+            // 
+            BacktoRegister.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BacktoRegister.Location = new Point(98, 268);
+            BacktoRegister.Name = "BacktoRegister";
+            BacktoRegister.Size = new Size(173, 43);
+            BacktoRegister.TabIndex = 5;
+            BacktoRegister.Text = "Back to Register";
+            BacktoRegister.UseVisualStyleBackColor = true;
+            BacktoRegister.Click += BacktoRegister_Click;
+            // 
+            // backgroundWorker1
+            // 
+            
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(618, 383);
+            Controls.Add(BacktoRegister);
             Controls.Add(Login_Button);
             Controls.Add(Passbox);
             Controls.Add(label1);
             Controls.Add(Userbox);
             Controls.Add(Username);
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             ResumeLayout(false);
             PerformLayout();
@@ -106,5 +125,7 @@
         private Label label1;
         private TextBox Passbox;
         private Button Login_Button;
+        private Button BacktoRegister;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

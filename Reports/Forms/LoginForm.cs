@@ -23,21 +23,22 @@ namespace Reports.Forms
         private void Login_Button_Click(object sender, EventArgs e)
 
         {
-            string username=Userbox.Text.Trim();
-            string password=Passbox.Text;
+            string username = Userbox.Text.Trim();
+            string password = Passbox.Text;
             var db = FireStoreHelper.Database;
             DocumentReference docRef = db.Collection("UserData").Document(username);
             UserData data = docRef.GetSnapshotAsync().Result.ConvertTo<UserData>();
 
-            if (data != null ) 
+            if (data != null)
             {
-              if(password==data.Password)
+                if (password == Security.Decrypt(data.Password))
                 {
                     Hide();
                     MainForm Mf = new MainForm();
                     Mf.ShowDialog();
                     Close();
-                }else
+                }
+                else
                 {
                     MessageBox.Show("Please Contact Administrator..");
                 }
@@ -46,23 +47,22 @@ namespace Reports.Forms
             {
                 MessageBox.Show("Please Contact Administrator..");
             }
-          
 
-           
+
+
         }
-        string dbpassword, dbusername;
-        private UserData GetData()
+        private void BacktoRegister_Click(object sender, EventArgs e)
         {
-            string username= Userbox.Text.Trim();
-            string password=Passbox.Text;
-            
-            return new UserData()
-            {
-                Username = username,
-                Password = password,
-                DBPassword = dbpassword,
-                DBUsername = dbusername,
-            };
+            Hide();
+            RegisterForm Rf = new RegisterForm();
+            Rf.ShowDialog();
+            Close();
         }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
     }
 }

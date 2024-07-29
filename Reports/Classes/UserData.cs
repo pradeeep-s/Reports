@@ -11,13 +11,15 @@ namespace Reports.Classes
     internal class UserData
     {
         [FirestoreProperty]
-        public string Username { get; set; }
+        public required string Username { get; set; }
         [FirestoreProperty]
-        public string Password { get; set; }
+        public required string Password { get; set; }
         [FirestoreProperty]
-        public string DBUsername { get; set; }
+        public required string DBUsername { get; set; }
         [FirestoreProperty]
-        public string DBPassword { get; set; }
+        public required string DBPassword { get; set; }
+        [FirestoreProperty]
+        public required string Date { get; set; }
 
     }
 }
